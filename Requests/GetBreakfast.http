@@ -1,4 +1,4 @@
-@id = 6ecf0273-cda1-4291-bdd2-3aa6414d1342
+@id = 4d5c96f6-ddbd-4ea4-aef4-7d1de4d28839
 
 GET http://localhost:5261/api/breakfasts/{{id}}
 

@@ -8,16 +8,17 @@ public class BreakfastService : IBreakfastService
 
     // dictionary is a collection of key/value pairs
     private static readonly Dictionary<Guid, BreakfastModel> _breakfasts = new();
-    public void CreateBreakfast(BreakfastModel breakfast)
+    public ErrorOr<Created> CreateBreakfast(BreakfastModel breakfast)
     {
-        // throw new NotImplementedException();
         _breakfasts.Add(breakfast.Id, breakfast);
+
+        return Result.Created;
     }
 
-    public void DeleteBreakfast(Guid id)
+    public ErrorOr<Deleted> DeleteBreakfast(Guid id)
     {
         _breakfasts.Remove(id);
-        // throw new NotImplementedException();
+        return Result.Deleted;
 
     }
 
@@ -33,10 +34,12 @@ public class BreakfastService : IBreakfastService
         }
     }
 
-    public void UpdateBreakfast(BreakfastModel breakfast)
+    public ErrorOr<UpdatedBreakfast> UpdateBreakfast(BreakfastModel breakfast)
     {
-        // throw new NotImplementedException();
+        var isNewlyCreated = !_breakfasts.ContainsKey(breakfast.Id);
         _breakfasts[breakfast.Id] = breakfast;
+
+        return new UpdatedBreakfast(isNewlyCreated);
     }
 
 

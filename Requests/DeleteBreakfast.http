@@ -1,4 +1,4 @@
-@id = 1
+@id = 4d5c96f6-ddbd-4ea4-aef4-7d1de4d28839
 
 DELETE http://localhost:5261/api/breakfasts/{{id}}
 
