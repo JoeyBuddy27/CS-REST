@@ -1,0 +1,6 @@
+@id = 1
+
+DELETE http://localhost:5261/api/breakfasts/{{id}}
+
+
+
